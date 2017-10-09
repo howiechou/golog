@@ -128,6 +128,7 @@ func (l *Logger) headers(level int, depth int) (*buffer) {
 	}
 
 	buf := l.bufs.getBuffer()
+	buf.level = level
 
 	if l.flag & Ltime > 0 {
 		now := time.Now().Format(TimeFormat)
