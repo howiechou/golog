@@ -46,6 +46,7 @@ func (h *SentryHandler) Write(b []byte, level int) (n int, err error) {
 
 
 func (h *SentryHandler) Close() error {
+	h.sentry.Wait()
 	h.sentry.Close()
 	return nil
 }
